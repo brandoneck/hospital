@@ -1,28 +1,21 @@
-'use client';
+"use client";
 
-import './globals.css';
-import { CssBaseline, Container, Box } from '@mui/material';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import MenuIcon from '@mui/icons-material/Menu';
-import Button from '@mui/material/Button';
-import ContainerMui from '@mui/material/Container';
-import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
-import Image from "next/image";
+import "./globals.css";
+import { CssBaseline, Container, Box } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import MenuIcon from "@mui/icons-material/Menu";
+import Button from "@mui/material/Button";
+import ContainerMui from "@mui/material/Container";
+import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
+import { LOCAL_URLS } from "../constants/urls";
+import { ROUTES } from "../constants/routes";
 
 
-const pages = [
-  { label: 'Inicio', path: '/' },
-  { label: 'Nosotros', path: '/nosotros' },
-  { label: 'Contacto', path: '/contacto' },
-  { label: 'Especialidades', path: '/especialidades' },
-  { label: 'Staff Médico', path: '/staff' },
-];
 
 export default function RootLayout({
   children,
@@ -48,14 +41,6 @@ export default function RootLayout({
         >
           <ContainerMui maxWidth="xl">
             <Toolbar disableGutters>
-              <Image
-                src="/logo_horizontal.png" // o logo.png
-                alt="Logo"
-                width={160}
-                height={80}
-                style={{ marginRight: "8px", display: "inline-block" }}
-              />
-
               {/* Mobile */}
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
                 <IconButton onClick={handleOpenNavMenu} color="secondary">
@@ -68,7 +53,7 @@ export default function RootLayout({
                   anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
                   transformOrigin={{ vertical: "top", horizontal: "left" }}
                 >
-                  {pages.map((page) => (
+                  {ROUTES.map((page) => (
                     <MenuItem
                       key={page.path}
                       onClick={() => {
@@ -84,23 +69,17 @@ export default function RootLayout({
               </Box>
 
               {/* Logo */}
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
+              <Box
+                component="img"
+                src={LOCAL_URLS.LOGO_HORIZONTAL}
+                alt="Logo"
+                height={35}
                 sx={{
-                  mr: 2,
-                  display: { xs: "flex", md: "none" },
-                  flexGrow: 1,
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".2rem",
-                  color: "black",
-                  textDecoration: "none",
+                  marginRight: "8px",
+                  display: "inline-block",
+                  position: { xs: "static", md: "absolute" },
                 }}
-              >
-                LOGO
-              </Typography>
+              />
 
               {/* Desktop */}
               <Box
@@ -110,7 +89,7 @@ export default function RootLayout({
                   justifyContent: "center",
                 }}
               >
-                {pages.map((page) => (
+                {ROUTES.map((page) => (
                   <Button
                     key={page.path}
                     onClick={() => {
