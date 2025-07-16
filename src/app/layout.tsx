@@ -37,7 +37,10 @@ export default function RootLayout({
         {/* AppBar */}
         <AppBar
           position="fixed"
-          sx={{ backgroundColor: "white", boxShadow: 2 }}
+          sx={{ 
+            backgroundColor: "white",             
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3))" 
+          }}
         >
           <ContainerMui maxWidth="xl">
             <Toolbar disableGutters>
@@ -77,7 +80,7 @@ export default function RootLayout({
                 sx={{
                   marginRight: "8px",
                   display: "inline-block",
-                  position: { xs: "static", md: "absolute" },
+                  // position: { xs: "static", md: "absolute" },
                 }}
               />
 
