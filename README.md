@@ -1,8 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏥 Hospital Branding Page
 
-## Getting Started
+A simple **branding page** project built with React.js.  
+This project serves as a clean, customizable website template to showcase doctors and their services.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+- 🎨 Responsive and modern design  
+- 🧩 Editable content sections for doctors’ profiles  
+- 🔗 Easy navigation with smooth scrolling  
+- ⚡ Fast performance and lightweight code  
+
+---
+
+## 🛠️ Tech Stack
+
+- React.js  
+- JavaScript (ES6+)  
+- CSS Modules / Styled Components  
+- MUI
+
+---
+
+## 🧪 Installation & Running Locally
+
 
 ```bash
 npm run dev
@@ -16,21 +38,14 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✨ About the Author
 
-To learn more about Next.js, take a look at the following resources:
+👋 Hi! I’m Brandon, a frontend developer passionate about building clean, intuitive web apps.  
+🎸 I also play guitar with my band and love mixing tech with creativity.  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+📬 Feel free to connect on [LinkedIn](https://www.linkedin.com/in/brandonlr/) or check out more projects on [GitHub](https://github.com/brandoneck).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
