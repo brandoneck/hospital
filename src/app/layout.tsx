@@ -14,7 +14,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { LOCAL_URLS } from "../constants/urls";
 import { ROUTES } from "../constants/routes";
-
+import Link from "next/link";
 
 
 export default function RootLayout({
@@ -60,12 +60,12 @@ export default function RootLayout({
                     <MenuItem
                       key={page.path}
                       onClick={() => {
-                        router.push(page.path);
                         handleCloseNavMenu();
+                        router.push(page.path);
                       }}
                       selected={pathname === page.path}
                     >
-                      {page.label}
+                        {page.label}
                     </MenuItem>
                   ))}
                 </Menu>
@@ -80,6 +80,7 @@ export default function RootLayout({
                 sx={{
                   marginRight: "8px",
                   display: "inline-block",
+                  // TODO: In case of menu should be centered 
                   // position: { xs: "static", md: "absolute" },
                 }}
               />
