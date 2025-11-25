@@ -44,6 +44,7 @@ export default function HomePage() {
               fontWeight: "bold",
               msTextCombineHorizontal: 2,
               textAlign: "center",
+              alignItems: "center",
             }}
           >
             Bienvenido a nuestro hospital

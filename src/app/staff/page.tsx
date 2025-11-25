@@ -2,13 +2,17 @@
 import { useEffect, useState } from 'react';
 
 export default function staffPage() {
-  const [doctores, setDoctores] = useState([]);
+ const [doctores, setDoctores] = useState(null);
 
-  useEffect(() => {
-    fetch('/api/doctores')
-      .then(res => res.json())
-      .then(setDoctores);
-  }, []);
+useEffect(() => {
+  fetch("/api/doctores")
+    .then((res) => res.json())
+    .then((data) => setDoctores(data));
+}, []);
+
+if (!doctores) {
+  return <p>Cargando...</p>; // el mismo HTML tanto en servidor como al hidratar
+}
 
   return (
     <div className="p-6">
