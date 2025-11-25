@@ -12,9 +12,10 @@ import Button from "@mui/material/Button";
 import ContainerMui from "@mui/material/Container";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import { LOCAL_URLS } from "../constants/urls";
-import { ROUTES } from "../constants/routes";
+import { LOCAL_URLS } from "@/constants/urls";
+import { ROUTES } from "@/constants/routes";
 import Link from "next/link";
+import Footer from "@/components/layout/Footer";
 
 
 export default function RootLayout({
@@ -129,6 +130,9 @@ export default function RootLayout({
         <Box sx={{ pt: 10 }}>
           <Container maxWidth="lg">{children}</Container>
         </Box>
+
+        {/* Footer */}
+        <Footer />
       </body>
     </html>
   );
