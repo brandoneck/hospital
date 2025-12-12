@@ -15,10 +15,11 @@ import ContainerMui from "@mui/material/Container";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { LOCAL_URLS } from "@/constants/urls";
-import { ROUTES_MENU, } from "@/constants/routes";
+import { ROUTES_MENU } from "@/constants/routes";
 import Link from "next/link";
 import Footer from "@/components/layout/Footer";
-
+import { LoadingProvider } from "@/context/LoadingContext";
+import GlobalLoader from "@/components/layout/GlobalLoader";
 
 export default function RootLayout({
   children,
@@ -44,106 +45,110 @@ export default function RootLayout({
         <ThemeProvider theme={theme}>
           <CssBaseline />
 
-          {/* AppBar */}
-          <AppBar
-            position="fixed"
-            sx={{
-              backgroundColor: "common.white",
-              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3))",
-            }}
-          >
-            <ContainerMui maxWidth="xl">
-              <Toolbar disableGutters>
-                {/* Mobile */}
-                <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-                  <IconButton onClick={handleOpenNavMenu} color="secondary">
-                    <MenuIcon />
-                  </IconButton>
-                  <Menu
-                    anchorEl={anchorElNav}
-                    open={Boolean(anchorElNav)}
-                    onClose={handleCloseNavMenu}
-                    anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-                    transformOrigin={{ vertical: "top", horizontal: "left" }}
+          <LoadingProvider>
+            <GlobalLoader />
+            <AppBar
+              position="fixed"
+              sx={{
+                backgroundColor: "common.white",
+                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3))",
+              }}
+            >
+              <ContainerMui maxWidth="xl">
+                <Toolbar disableGutters>
+                  {/* Mobile */}
+                  <Box
+                    sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+                  >
+                    <IconButton onClick={handleOpenNavMenu} color="secondary">
+                      <MenuIcon />
+                    </IconButton>
+                    <Menu
+                      anchorEl={anchorElNav}
+                      open={Boolean(anchorElNav)}
+                      onClose={handleCloseNavMenu}
+                      anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+                      transformOrigin={{ vertical: "top", horizontal: "left" }}
+                    >
+                      {ROUTES_MENU.map((page) => (
+                        <MenuItem
+                          key={page.path}
+                          onClick={() => {
+                            handleCloseNavMenu();
+                            router.push(page.path);
+                          }}
+                          selected={pathname === page.path}
+                        >
+                          {page.label}
+                        </MenuItem>
+                      ))}
+                    </Menu>
+                  </Box>
+
+                  {/* Logo */}
+                  <Box
+                    component="img"
+                    src={LOCAL_URLS.LOGO_HORIZONTAL}
+                    alt="Logo"
+                    height={35}
+                    sx={{
+                      marginRight: "8px",
+                      display: "inline-block",
+                      // TODO: In case of menu should be centered
+                      // position: { xs: "static", md: "absolute" },
+                    }}
+                  />
+
+                  {/* Desktop */}
+                  <Box
+                    sx={{
+                      flexGrow: 1,
+                      display: { xs: "none", md: "flex" },
+                      justifyContent: "center",
+                    }}
                   >
                     {ROUTES_MENU.map((page) => (
-                      <MenuItem
+                      <Button
                         key={page.path}
                         onClick={() => {
                           handleCloseNavMenu();
                           router.push(page.path);
                         }}
-                        selected={pathname === page.path}
+                        sx={{
+                          my: 2,
+                          color:
+                            pathname === page.path
+                              ? "primary.main"
+                              : "text.primary",
+                          fontWeight:
+                            pathname === page.path ? "bold" : "normal",
+                          borderBottom:
+                            pathname === page.path
+                              ? "2px solid"
+                              : "2px solid transparent",
+                          borderColor:
+                            pathname === page.path
+                              ? "primary.main"
+                              : "transparent",
+                          borderRadius: 0,
+                          transition: "border-color 0.3s ease, color 0.3s ease",
+                        }}
                       >
                         {page.label}
-                      </MenuItem>
+                      </Button>
                     ))}
-                  </Menu>
-                </Box>
+                  </Box>
+                </Toolbar>
+              </ContainerMui>
+            </AppBar>
 
-                {/* Logo */}
-                <Box
-                  component="img"
-                  src={LOCAL_URLS.LOGO_HORIZONTAL}
-                  alt="Logo"
-                  height={35}
-                  sx={{
-                    marginRight: "8px",
-                    display: "inline-block",
-                    // TODO: In case of menu should be centered
-                    // position: { xs: "static", md: "absolute" },
-                  }}
-                />
+            <Box sx={{ pt: 10 }}>
+              <Container maxWidth="lg">{children}</Container>
+            </Box>
 
-                {/* Desktop */}
-                <Box
-                  sx={{
-                    flexGrow: 1,
-                    display: { xs: "none", md: "flex" },
-                    justifyContent: "center",
-                  }}
-                >
-                  {ROUTES_MENU.map((page) => (
-                    <Button
-                      key={page.path}
-                      onClick={() => {
-                        handleCloseNavMenu();
-                        router.push(page.path);
-                      }}
-                      sx={{
-                        my: 2,
-                        color:
-                          pathname === page.path
-                            ? "primary.main"
-                            : "text.primary",
-                        fontWeight: pathname === page.path ? "bold" : "normal",
-                        borderBottom:
-                          pathname === page.path
-                            ? "2px solid"
-                            : "2px solid transparent",
-                        borderColor:
-                          pathname === page.path
-                            ? "primary.main"
-                            : "transparent",
-                        borderRadius: 0,
-                        transition: "border-color 0.3s ease, color 0.3s ease",
-                      }}
-                    >
-                      {page.label}
-                    </Button>
-                  ))}
-                </Box>
-              </Toolbar>
-            </ContainerMui>
-          </AppBar>
-
-          {/* Espacio debajo del AppBar */}
-          <Box sx={{ pt: 10 }}>
-            <Container maxWidth="lg">{children}</Container>
-          </Box>
-
-          {/* Footer */}
-          <Footer />
+            {/* Footer */}
+            <Footer />
+          </LoadingProvider>
         </ThemeProvider>
       </body>
     </html>

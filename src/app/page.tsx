@@ -3,10 +3,11 @@ import { Typography, Box, Button } from "@mui/material";
 import Image from "next/image"; // Si usas Next.js
 import { useRouter } from "next/navigation";
 import { ROUTES } from "@/constants/routes";
-
+import { useLoading } from "@/context/LoadingContext";
 
 export default function HomePage() {
   const router = useRouter();
+  const { redirect } = useLoading();
   return (
     <>
       <Box
@@ -34,7 +35,7 @@ export default function HomePage() {
           <Image
             src="/pictures/Hospital-San-Marcos-1.jpeg"
             alt="Banner"
-            fill // ocupa todo el espacio del Box
+            fill
             style={{
               objectFit: "cover",
             }}
@@ -61,7 +62,7 @@ export default function HomePage() {
               variant="contained"
               color="primary"
               size="large"
-              onClick={() => router.push(ROUTES.CONTACTO)}
+              onClick={() => redirect(ROUTES.CONTACTO)}
             >
               Agendar cita
             </Button>
