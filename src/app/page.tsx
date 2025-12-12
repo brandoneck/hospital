@@ -1,8 +1,12 @@
 "use client";
 import { Typography, Box, Button } from "@mui/material";
 import Image from "next/image"; // Si usas Next.js
+import { useRouter } from "next/navigation";
+import { ROUTES } from "@/constants/routes";
+
 
 export default function HomePage() {
+  const router = useRouter();
   return (
     <>
       <Box
@@ -28,7 +32,7 @@ export default function HomePage() {
           }}
         >
           <Image
-            src="/pictures/Hospital-San-Marcos-1.jpeg" // Usa tu ruta local o de Firebase
+            src="/pictures/Hospital-San-Marcos-1.jpeg"
             alt="Banner"
             fill // ocupa todo el espacio del Box
             style={{
@@ -37,7 +41,7 @@ export default function HomePage() {
           />
         </Box>
 
-        <Box sx={{ flex: 1, mt: 4, justifyItems: "center" }}>
+        <Box sx={{ flex: 1, mt: 4, justifyItems: "center", textAlign: "center" }}>
           <Typography
             variant="h3"
             sx={{
@@ -53,9 +57,14 @@ export default function HomePage() {
             Atención médica de calidad con tecnología de punta. Reserva tu cita
             ahora.
           </Typography>
-          <Button variant="contained" sx={{ backgroundColor: "#021859" }}>
-            Ver más
-          </Button>
+          <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              onClick={() => router.push(ROUTES.CONTACTO)}
+            >
+              Agendar cita
+            </Button>
         </Box>
       </Box>
     </>

@@ -15,7 +15,7 @@ import ContainerMui from "@mui/material/Container";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { LOCAL_URLS } from "@/constants/urls";
-import { ROUTES } from "@/constants/routes";
+import { ROUTES_MENU, } from "@/constants/routes";
 import Link from "next/link";
 import Footer from "@/components/layout/Footer";
 
@@ -66,7 +66,7 @@ export default function RootLayout({
                     anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
                     transformOrigin={{ vertical: "top", horizontal: "left" }}
                   >
-                    {ROUTES.map((page) => (
+                    {ROUTES_MENU.map((page) => (
                       <MenuItem
                         key={page.path}
                         onClick={() => {
@@ -103,7 +103,7 @@ export default function RootLayout({
                     justifyContent: "center",
                   }}
                 >
-                  {ROUTES.map((page) => (
+                  {ROUTES_MENU.map((page) => (
                     <Button
                       key={page.path}
                       onClick={() => {

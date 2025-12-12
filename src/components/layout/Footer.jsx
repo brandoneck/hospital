@@ -1,8 +1,7 @@
 import { Box, Grid, Typography, Link, IconButton } from "@mui/material";
 import { LOCAL_URLS } from "@/constants/urls";
-import { ROUTES } from "@/constants/routes";
+import { ROUTES_MENU } from "@/constants/routes";
 
-// Material UI Icons
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -27,12 +26,8 @@ export default function Footer() {
         alignItems="center"
       >
         {/* -------- IZQUIERDA -------- */}
-        <Grid item xs={12} md={4}>
-          <Box
-            display="flex"
-            align-items="stretch"
-            gap={4}
-          >
+        <Grid size={{ xs: 12, md: 4 }}>
+          <Box display="flex" alignItems="stretch" gap={4}>
             <Box display="flex" alignItems="center" gap={2}>
               <Box
                 component="img"
@@ -50,7 +45,6 @@ export default function Footer() {
 
             <Box
               display="flex"
-              // flexDirection="column"
               alignItems="center"
               justifyContent="flex-start"
               gap={2}
@@ -66,11 +60,8 @@ export default function Footer() {
                 },
               }}
             >
-              {ROUTES.map((page) => (
-                <Link
-                  key={page.path}
-                  href={page.path}
-                >
+              {ROUTES_MENU.map((page) => (
+                <Link key={page.path} href={page.path}>
                   {page.label}
                 </Link>
               ))}
@@ -78,9 +69,8 @@ export default function Footer() {
           </Box>
         </Grid>
 
-
         {/* -------- DERECHA -------- */}
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Box
             display="flex"
             flexDirection="column"
@@ -92,17 +82,23 @@ export default function Footer() {
             <Box display="flex" gap={1} alignItems="center">
               <PhoneIcon fontSize="small" />
               <Link href="tel:+524490000000" underline="hover" color="inherit">
-              <Typography variant="body2">Tel: (449) 000 0000</Typography>
-                {/* Tel: (449) 000 0000 */}
+                <Typography variant="body2">Tel: (449) 000 0000</Typography>
               </Link>
             </Box>
 
             <Box display="flex" gap={1} alignItems="center">
               <EmailIcon fontSize="small" />
-              <Link href="mailto:info@hospitalmarcos.com" underline="hover" color="inherit">
-              <Typography variant="body2">info@hospitalmarcos.com</Typography>
+              <Link
+                href="mailto:info@hospitalmarcos.com"
+                underline="hover"
+                color="inherit"
+              >
+                <Typography variant="body2">
+                  info@hospitalmarcos.com
+                </Typography>
               </Link>
             </Box>
+
             <Box display="flex" gap={1}>
               <IconButton
                 href="#"
@@ -123,7 +119,6 @@ export default function Footer() {
         </Grid>
       </Grid>
 
-      {/* ------- Copyright -------- */}
       <Typography
         variant="body2"
         textAlign="center"

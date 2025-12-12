@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#020659", // azul fuerte
+      main: "#020659",
       dark: "#021859",
     },
     secondary: {
@@ -15,9 +15,9 @@ const theme = createTheme({
     },
     common: {
       white: "#FFFFFF",
-      black: "#000000", // opcional
+      black: "#000000",
     },
-    custom: {
+    custom: { 
       blue1: "#020659",
       blue2: "#021859",
       gray1: "#8D93A6",
