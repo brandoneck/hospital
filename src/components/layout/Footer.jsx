@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, Link, IconButton } from "@mui/material";
+import { Box, Typography, Link, IconButton } from "@mui/material";
 import { LOCAL_URLS } from "@/constants/urls";
 import { ROUTES_MENU } from "@/constants/routes";
 
@@ -19,15 +19,20 @@ export default function Footer() {
         color: "white",
       }}
     >
-      <Grid
-        container
-        spacing={4}
-        justifyContent="space-between"
-        alignItems="center"
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "1fr",
+            md: "repeat(3, 1fr)",
+          },
+          gap: 4,
+          alignItems: "center",
+        }}
       >
         {/* -------- IZQUIERDA -------- */}
-        <Grid size={{ xs: 12, md: 4 }}>
-          <Box display="flex" alignItems="stretch" gap={4}>
+        <Box>
+          <Box display="flex" gap={4} flexWrap="wrap">
             <Box display="flex" alignItems="center" gap={2}>
               <Box
                 component="img"
@@ -46,7 +51,6 @@ export default function Footer() {
             <Box
               display="flex"
               alignItems="center"
-              justifyContent="flex-start"
               gap={2}
               sx={{
                 "& a": {
@@ -67,14 +71,17 @@ export default function Footer() {
               ))}
             </Box>
           </Box>
-        </Grid>
+        </Box>
+
+        {/* -------- CENTRO -------- */}
+        <Box display={{ xs: "none", md: "block" }} />
 
         {/* -------- DERECHA -------- */}
-        <Grid size={{ xs: 12, md: 4 }}>
+        <Box>
           <Box
             display="flex"
             flexDirection="column"
-            alignItems="flex-end"
+            alignItems={{ xs: "flex-start", md: "flex-end" }}
             gap={1}
           >
             <Typography variant="subtitle1">Contacto</Typography>
@@ -82,7 +89,9 @@ export default function Footer() {
             <Box display="flex" gap={1} alignItems="center">
               <PhoneIcon fontSize="small" />
               <Link href="tel:+524490000000" underline="hover" color="inherit">
-                <Typography variant="body2">Tel: (449) 000 0000</Typography>
+                <Typography variant="body2">
+                  Tel: (449) 000 0000
+                </Typography>
               </Link>
             </Box>
 
@@ -116,8 +125,8 @@ export default function Footer() {
               </IconButton>
             </Box>
           </Box>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
 
       <Typography
         variant="body2"
