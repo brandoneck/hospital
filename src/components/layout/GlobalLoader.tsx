@@ -23,7 +23,6 @@ export default function GlobalLoader() {
         alt="Logo"
         height={30}
         sx={{
-          marginRight: "8px",
           display: "inline-block",
           position: { xs: "static", md: "absolute" },
         }}
