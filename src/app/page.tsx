@@ -33,7 +33,7 @@ export default function HomePage() {
           }}
         >
           <Image
-            src="/pictures/Hospital-San-Marcos-1.jpeg"
+            src="/pictures/generic-hospital.jpg" 
             alt="Banner"
             fill
             style={{

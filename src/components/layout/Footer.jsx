@@ -41,7 +41,7 @@ export default function Footer() {
                 height={40}
               />
               <Box>
-                <Typography variant="h6">Hospital San Marcos</Typography>
+                <Typography variant="h6">Medical Center Branding Page (Demo)</Typography>
                 <Typography variant="body2">
                   Especialistas de la salud.
                 </Typography>
@@ -98,12 +98,14 @@ export default function Footer() {
             <Box display="flex" gap={1} alignItems="center">
               <EmailIcon fontSize="small" />
               <Link
-                href="mailto:info@hospitalmarcos.com"
+              // TODO: Cambiar el correo por uno real
+                // href="mailto:info@hospitalmarcos.com"
+                href="#"
                 underline="hover"
                 color="inherit"
               >
                 <Typography variant="body2">
-                  info@hospitalmarcos.com
+                  info@medicalcenter...
                 </Typography>
               </Link>
             </Box>
@@ -134,7 +136,7 @@ export default function Footer() {
         mt={4}
         sx={{ opacity: 0.7 }}
       >
-        © {new Date().getFullYear()} Hospital San Marcos – Todos los derechos
+        © {new Date().getFullYear()} Medical Center Branding Page (Demo) – Todos los derechos
         reservados.
       </Typography>
     </Box>

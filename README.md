@@ -3,6 +3,11 @@
 A simple **branding page** project built with React.js.  
 This project serves as a clean, customizable website template to showcase doctors and their services.
 
+This project is a demo version of a branding landing page
+originally designed for a local medical center.
+
+All names, images and data have been replaced for privacy.
+
 ---
 
 ## 🚀 Features
