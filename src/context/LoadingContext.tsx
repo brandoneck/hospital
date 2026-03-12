@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 interface LoadingContextType {
@@ -16,12 +22,14 @@ export const LoadingProvider = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();
 
   const redirect = (path: string) => {
-    setLoading(true);
+  if (pathname === path) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
 
-    setTimeout(() => {
-      router.push(path);
-    }, 50);
-  };
+  setLoading(true);
+  router.push(path);
+};
 
   useEffect(() => {
     setLoading(false);

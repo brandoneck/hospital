@@ -66,9 +66,14 @@ export default function Navbar() {
             src={LOCAL_URLS.LOGO_GENERIC}
             alt="Logo"
             height={35}
+            onClick={() => {
+              handleCloseNavMenu();
+              redirect("/");
+            }}
             sx={{
               marginRight: "8px",
               display: "inline-block",
+              cursor: "pointer",
               // TODO: In case of menu should be centered
               // position: { xs: "static", md: "absolute" },
             }}

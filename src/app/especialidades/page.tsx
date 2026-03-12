@@ -1,6 +1,10 @@
 'use client';
-import { Typography } from '@mui/material';
+import Specialities from '@/components/sections/Specialities';
 
 export default function EspecialidadesPage() {
-  return <Typography variant="h4">Página de Especialidades</Typography>;
+  return (
+    <>
+      <Specialities />
+    </>
+  );
 }

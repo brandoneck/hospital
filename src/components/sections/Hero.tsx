@@ -22,7 +22,7 @@ export default function Hero() {
           borderRadius: 2,
           p: 4,
           overflow: "hidden",
-          mb: 4,
+          mb: 8,
         }}
       >
         <Box
