@@ -4,6 +4,8 @@ import Image from "next/image"; // Si usas Next.js
 import { useRouter } from "next/navigation";
 import { ROUTES } from "@/constants/routes";
 import { useLoading } from "@/context/LoadingContext";
+import { LOCAL_URLS } from "@/constants/urls";
+import { hospitalInfo } from "@/data/hospitalData";
 
 export default function HomePage() {
   const router = useRouter();
@@ -33,7 +35,7 @@ export default function HomePage() {
           }}
         >
           <Image
-            src="/pictures/generic-hospital.jpg" 
+            src={LOCAL_URLS.HOSPITAL_IMAGE}
             alt="Banner"
             fill
             style={{
@@ -42,7 +44,9 @@ export default function HomePage() {
           />
         </Box>
 
-        <Box sx={{ flex: 1, mt: 4, justifyItems: "center", textAlign: "center" }}>
+        <Box
+          sx={{ flex: 1, mt: 4, justifyItems: "center", textAlign: "center" }}
+        >
           <Typography
             variant="h3"
             sx={{
@@ -52,20 +56,19 @@ export default function HomePage() {
               alignItems: "center",
             }}
           >
-            Bienvenido a nuestro hospital
+            {hospitalInfo.hero.title}
           </Typography>
           <Typography variant="body1" sx={{ mb: 3, textAlign: "center" }}>
-            Atención médica de calidad con tecnología de punta. Reserva tu cita
-            ahora.
+            {hospitalInfo.hero.text}
           </Typography>
           <Button
-              variant="contained"
-              color="primary"
-              size="large"
-              onClick={() => redirect(ROUTES.CONTACTO)}
-            >
-              Agendar cita
-            </Button>
+            variant="contained"
+            color="primary"
+            size="large"
+            onClick={() => redirect(ROUTES.CONTACTO)}
+          >
+            {hospitalInfo.hero.actionLabel}
+          </Button>
         </Box>
       </Box>
     </>

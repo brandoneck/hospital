@@ -1,6 +1,7 @@
 import { Box, Typography, Link, IconButton } from "@mui/material";
 import { LOCAL_URLS } from "@/constants/urls";
 import { ROUTES_MENU } from "@/constants/routes";
+import { hospitalInfo } from "@/data/hospitalData";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -41,9 +42,11 @@ export default function Footer() {
                 height={40}
               />
               <Box>
-                <Typography variant="h6">Medical Center Branding Page (Demo)</Typography>
+                <Typography variant="h6">
+                  {hospitalInfo.general.name}
+                </Typography>
                 <Typography variant="body2">
-                  Especialistas de la salud.
+                  {hospitalInfo.footer.text}
                 </Typography>
               </Box>
             </Box>
@@ -90,7 +93,7 @@ export default function Footer() {
               <PhoneIcon fontSize="small" />
               <Link href="tel:+524490000000" underline="hover" color="inherit">
                 <Typography variant="body2">
-                  Tel: (449) 000 0000
+                  {hospitalInfo.contact.phone}
                 </Typography>
               </Link>
             </Box>
@@ -98,14 +101,14 @@ export default function Footer() {
             <Box display="flex" gap={1} alignItems="center">
               <EmailIcon fontSize="small" />
               <Link
-              // TODO: Cambiar el correo por uno real
-                // href="mailto:info@hospitalmarcos.com"
+                // TODO: Cambiar el correo por uno real
+                // href=`mailto:${hospitalInfo.email}`
                 href="#"
                 underline="hover"
                 color="inherit"
               >
                 <Typography variant="body2">
-                  info@medicalcenter...
+                  {hospitalInfo.contact.email}
                 </Typography>
               </Link>
             </Box>
@@ -116,14 +119,30 @@ export default function Footer() {
                 sx={{ color: "white", p: 0.5 }}
                 aria-label="Facebook"
               >
-                <FacebookIcon />
+                <Link
+                  href={hospitalInfo.social.facebook}
+                  color="inherit"
+                  underline="none"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <FacebookIcon />
+                </Link>
               </IconButton>
               <IconButton
                 href="#"
                 sx={{ color: "white", p: 0.5 }}
                 aria-label="Instagram"
               >
-                <InstagramIcon />
+                <Link
+                  href={hospitalInfo.social.instagram}
+                  color="inherit"
+                  underline="none"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <InstagramIcon />
+                </Link>
               </IconButton>
             </Box>
           </Box>
@@ -136,8 +155,8 @@ export default function Footer() {
         mt={4}
         sx={{ opacity: 0.7 }}
       >
-        © {new Date().getFullYear()} Medical Center Branding Page (Demo) – Todos los derechos
-        reservados.
+        © {new Date().getFullYear()} {hospitalInfo.general.name} – Todos los
+        derechos reservados.
       </Typography>
     </Box>
   );

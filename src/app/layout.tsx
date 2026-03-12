@@ -16,7 +16,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { LOCAL_URLS } from "@/constants/urls";
 import { ROUTES_MENU } from "@/constants/routes";
-import Link from "next/link";
 import Footer from "@/components/layout/Footer";
 import { LoadingProvider } from "@/context/LoadingContext";
 import GlobalLoader from "@/components/layout/GlobalLoader";
@@ -88,7 +87,7 @@ export default function RootLayout({
                   {/* Logo */}
                   <Box
                     component="img"
-                    src={LOCAL_URLS.LOGO_HORIZONTAL}
+                    src={LOCAL_URLS.LOGO_GENERIC}
                     alt="Logo"
                     height={35}
                     sx={{
