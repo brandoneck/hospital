@@ -4,7 +4,7 @@ export const hospitalInfo = {
   },
 
   contact: {
-    email: "contacto@...",
+    email: "contacto@hospital...",
     phone: "+52 449 123 4567",
     address: "Av. Principal 123, Aguascalientes, México"
   },
@@ -18,7 +18,13 @@ export const hospitalInfo = {
   hero: {
     title: "Bienvenido a nuestro Hospital",
     text: "Atención médica de calidad con tecnología de punta. Reserva tu cita ahora.",
-    actionLabel: "Agendar cita"
+    actionLabel: "Agendar cita",
+    stats: [
+      { value: "⭐ 20+ años" },
+      { value: "👨‍⚕️ 20 especialistas" },
+      { value: "🏥 +10,000 pacientes" },
+      { value: "🕐 24/7" }
+    ]
   },
 
   services: [

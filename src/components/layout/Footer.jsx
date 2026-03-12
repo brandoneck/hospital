@@ -115,34 +115,22 @@ export default function Footer() {
 
             <Box display="flex" gap={1}>
               <IconButton
-                href="#"
-                sx={{ color: "white", p: 0.5 }}
+                href={hospitalInfo.social.facebook}
+                target="_blank"
+                rel="noopener"
+                sx={{ color: "white" }}
                 aria-label="Facebook"
               >
-                <Link
-                  href={hospitalInfo.social.facebook}
-                  color="inherit"
-                  underline="none"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <FacebookIcon />
-                </Link>
+                <FacebookIcon />
               </IconButton>
               <IconButton
-                href="#"
+                href={hospitalInfo.social.instagram}
+                target="_blank"
+                rel="noopener"
                 sx={{ color: "white", p: 0.5 }}
                 aria-label="Instagram"
               >
-                <Link
-                  href={hospitalInfo.social.instagram}
-                  color="inherit"
-                  underline="none"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <InstagramIcon />
-                </Link>
+                <InstagramIcon />
               </IconButton>
             </Box>
           </Box>

@@ -17,13 +17,12 @@ export const LoadingProvider = ({ children }: { children: ReactNode }) => {
 
   const redirect = (path: string) => {
     setLoading(true);
-    // Pequeño delay para que el Backdrop/Spinner aparezca (mejora UX)
+
     setTimeout(() => {
       router.push(path);
     }, 50);
   };
 
-  // Cuando pathname cambia, la navegación ya terminó: apagar loader
   useEffect(() => {
     setLoading(false);
   }, [pathname]);
