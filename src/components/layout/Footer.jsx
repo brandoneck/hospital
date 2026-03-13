@@ -9,6 +9,8 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <Box
       component="footer"
@@ -143,8 +145,7 @@ export default function Footer() {
         mt={4}
         sx={{ opacity: 0.7 }}
       >
-        © {new Date().getFullYear()} {hospitalInfo.general.name} – Todos los
-        derechos reservados.
+        © {year} {hospitalInfo.general.name} – Todos los derechos reservados.
       </Typography>
     </Box>
   );
