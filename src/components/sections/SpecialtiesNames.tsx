@@ -22,7 +22,7 @@ export default function SpecialtiesNames() {
         transition: "all 0.8s ease-out",
       }}
     >
-      <Box sx={{ textAlign: "center", mb: 2 }}>
+      <Box sx={{ textAlign: "center" }}>
         <Typography variant="h4">Nuestras Especialidades</Typography>
       </Box>
       <Box

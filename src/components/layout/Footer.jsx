@@ -2,6 +2,7 @@ import { Box, Typography, Link, IconButton } from "@mui/material";
 import { LOCAL_URLS } from "@/constants/urls";
 import { ROUTES_MENU } from "@/constants/routes";
 import { hospitalInfo } from "@/data/hospitalData";
+import { useNavigation } from "@/hooks/useNavigation";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -9,6 +10,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 
 export default function Footer() {
+  const { handleNavigation } = useNavigation();
   const year = new Date().getFullYear();
 
   return (
@@ -70,7 +72,11 @@ export default function Footer() {
               }}
             >
               {ROUTES_MENU.map((page) => (
-                <Link key={page.path} href={page.path}>
+                <Link
+                  key={page.path}
+                  href={page.path}
+                  onClick={(e) => handleNavigation(e, page.path)}
+                >
                   {page.label}
                 </Link>
               ))}

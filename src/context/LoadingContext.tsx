@@ -8,10 +8,11 @@ import {
   useEffect,
 } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { useRef } from "react";
 
 interface LoadingContextType {
   loading: boolean;
-  redirect: (path: string) => void;
+  startLoading: (path: string) => void;
 }
 
 const LoadingContext = createContext<LoadingContextType | null>(null);
@@ -20,23 +21,33 @@ export const LoadingProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const redirect = (path: string) => {
-  if (pathname === path) {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    return;
+const startLoading = (path: string) => {
+  if (pathname === path) return;
+  if (loading) return;
+
+  if (timeoutRef.current) {
+    clearTimeout(timeoutRef.current);
   }
 
-  setLoading(true);
-  router.push(path);
+  timeoutRef.current = setTimeout(() => {
+    setLoading(true);
+  }, 150);
 };
 
-  useEffect(() => {
-    setLoading(false);
-  }, [pathname]);
+useEffect(() => {
+  if (timeoutRef.current) {
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = null;
+  }
+
+  setLoading(false);
+}, [pathname]);
 
   return (
-    <LoadingContext.Provider value={{ loading, redirect }}>
+    <LoadingContext.Provider value={{ loading, startLoading }}>
       {children}
     </LoadingContext.Provider>
   );

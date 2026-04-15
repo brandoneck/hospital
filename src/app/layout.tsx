@@ -6,7 +6,7 @@ import theme from "@/theme/theme";
 import { CssBaseline, Container, Box } from "@mui/material";
 import Footer from "@/components/layout/Footer";
 import { LoadingProvider } from "@/context/LoadingContext";
-import Navbar from "@/components/layout/Navbar";
+import Navbar from "@/components/layout/Navbar/Navbar";
 import GlobalLoader from "@/components/layout/GlobalLoader";
 
 export default function RootLayout({
