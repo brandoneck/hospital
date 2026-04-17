@@ -24,10 +24,9 @@ export default function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const handleOpenNavMenu = (event: any) => setAnchorElNav(event.currentTarget);
   const handleCloseNavMenu = () => setAnchorElNav(null);
-const handleLogoClick = (e: React.MouseEvent) => {
-  handleNavigation(e, ROUTES.INICIO, handleCloseNavMenu);
-};
-  
+  const handleLogoClick = (e: React.MouseEvent) => {
+    handleNavigation(e, ROUTES.INICIO, handleCloseNavMenu);
+  };
 
   return (
     <AppBar
@@ -59,17 +58,19 @@ const handleLogoClick = (e: React.MouseEvent) => {
 
           {/* Logo */}
           <Link
-  href={ROUTES.INICIO}
-  onClick={(e) => handleNavigation(e, ROUTES.INICIO, handleCloseNavMenu)}
->
-  <Box
-    component="img"
-    src={LOCAL_URLS.LOGO_GENERIC}
-    alt="Logo"
-    height={35}
-    sx={{ cursor: "pointer" }}
-  />
-</Link>
+            href={ROUTES.INICIO}
+            onClick={(e) =>
+              handleNavigation(e, ROUTES.INICIO, handleCloseNavMenu)
+            }
+          >
+            <Box
+              component="img"
+              src={LOCAL_URLS.LOGO_GENERIC}
+              alt="Logo"
+              height={35}
+              sx={{ cursor: "pointer" }}
+            />
+          </Link>
 
           {/* Desktop */}
           <Box
