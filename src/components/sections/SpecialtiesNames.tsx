@@ -1,11 +1,12 @@
 import { Typography, Card, Button, Box, CardContent } from "@mui/material";
 import { specialtiesData } from "@/data/specialtiesData";
-import { useLoading } from "@/context/LoadingContext";
 import { ROUTES } from "@/constants/routes";
 import { useInView } from "@/hooks/useInView";
+import { useNavigation } from "@/hooks/useNavigation";
+import Link from "next/link";
 
 export default function SpecialtiesNames() {
-  const { redirect } = useLoading();
+  const { handleNavigation } = useNavigation();
   const [ref, isVisible] = useInView();
 
   return (
@@ -49,24 +50,27 @@ export default function SpecialtiesNames() {
               },
             }}
           >
-            <CardContent
-              sx={{ textAlign: "center", cursor: "pointer" }}
+            ´
+            <Link
+              href={`${ROUTES.ESPECIALIDADES}`}
               // TODO: redireccionar a la página de especialidad específica
-              // onClick={() => redirect((`${ROUTES.ESPECIALIDADES}/${specialty.name.toLowerCase()}`))}>
-              onClick={() => redirect(`${ROUTES.ESPECIALIDADES}`)}
+              // href={`${ROUTES.ESPECIALIDADES}/${specialty.name.toLowerCase()}`}
+              style={{ textDecoration: "none" }}
             >
-              <Box sx={{ mb: 2 }}>{specialty.icon}</Box>
-              <Typography
-                variant="h6"
-                sx={{
-                  color: "#111",
-                  fontWeight: 500,
-                  letterSpacing: "0.5px",
-                }}
-              >
-                {specialty.name}
-              </Typography>
-            </CardContent>
+              <CardContent sx={{ textAlign: "center", cursor: "pointer" }}>
+                <Box sx={{ mb: 2 }}>{specialty.icon}</Box>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "#111",
+                    fontWeight: 500,
+                    letterSpacing: "0.5px",
+                  }}
+                >
+                  {specialty.name}
+                </Typography>
+              </CardContent>
+            </Link>
           </Card>
         ))}
         <Button
@@ -82,8 +86,8 @@ export default function SpecialtiesNames() {
               backgroundColor: "#f5f5f5",
             },
           }}
-          onClick={() => {
-            redirect(ROUTES.ESPECIALIDADES);
+          onClick={(e) => {
+            handleNavigation(e, ROUTES.ESPECIALIDADES);
           }}
         >
           View All Specialties

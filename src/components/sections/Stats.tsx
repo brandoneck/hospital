@@ -1,5 +1,5 @@
 "use client";
-import { Typography, Box, Button } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import { hospitalInfo } from "@/data/hospitalData";
 import { useInView } from "@/hooks/useInView";
 

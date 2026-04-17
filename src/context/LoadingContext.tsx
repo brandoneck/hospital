@@ -7,7 +7,7 @@ import {
   ReactNode,
   useEffect,
 } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useRef } from "react";
 
 interface LoadingContextType {
@@ -19,15 +19,13 @@ const LoadingContext = createContext<LoadingContextType | null>(null);
 
 export const LoadingProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
   const pathname = usePathname();
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const startLoading = (path: string) => {
     if (pathname === path) return;
     if (loading) return;
-    
+
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }

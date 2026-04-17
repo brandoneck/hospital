@@ -1,15 +1,13 @@
 "use client";
 import { Typography, Box, Button } from "@mui/material";
 import Image from "next/image"; // Si usas Next.js
-import { useRouter } from "next/navigation";
 import { ROUTES } from "@/constants/routes";
-import { useLoading } from "@/context/LoadingContext";
 import { LOCAL_URLS } from "@/constants/urls";
 import { hospitalInfo } from "@/data/hospitalData";
+import { useNavigation } from "@/hooks/useNavigation";
 
 export default function Hero() {
-  const router = useRouter();
-  const { redirect } = useLoading();
+  const { handleNavigation } = useNavigation();
   return (
     <>
       <Box
@@ -65,7 +63,7 @@ export default function Hero() {
             variant="contained"
             color="primary"
             size="large"
-            onClick={() => redirect(ROUTES.CONTACTO)}
+            onClick={(e) => handleNavigation(e, ROUTES.CONTACTO)}
           >
             {hospitalInfo.hero.actionLabel}
           </Button>

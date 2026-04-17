@@ -1,8 +1,6 @@
 "use client";
 
 import { Box } from "@mui/material";
-import { useLoading } from "@/context/LoadingContext";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -18,15 +16,12 @@ import { LOCAL_URLS } from "@/constants/urls";
 import { ROUTES_MENU, ROUTES } from "@/constants/routes";
 
 export default function Navbar() {
-  const { startLoading } = useLoading();
   const { handleNavigation } = useNavigation();
-  const pathname = usePathname();
-  const [anchorElNav, setAnchorElNav] = useState(null);
-  const handleOpenNavMenu = (event: any) => setAnchorElNav(event.currentTarget);
-  const handleCloseNavMenu = () => setAnchorElNav(null);
-  const handleLogoClick = (e: React.MouseEvent) => {
-    handleNavigation(e, ROUTES.INICIO, handleCloseNavMenu);
+  const [anchorElNav, setAnchorElNav] = useState<HTMLElement | null>(null);
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
   };
+  const handleCloseNavMenu = () => setAnchorElNav(null);
 
   return (
     <AppBar

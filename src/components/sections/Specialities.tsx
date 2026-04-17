@@ -14,7 +14,7 @@ export default function Specialities() {
         justifyContent: "center",
       }}
     >
-      {specialtiesData.map((specialty: Specialty, index: number) => (
+      {specialtiesData.map((specialty: Specialty) => (
         <Card
           key={specialty.name}
           sx={{

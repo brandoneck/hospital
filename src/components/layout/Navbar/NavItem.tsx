@@ -1,7 +1,7 @@
 import { Link, MenuItem } from "@mui/material";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import { useNavigation } from "@/hooks/useNavigation";
+
 const NavItem = ({
   page,
   isMobile = false,
@@ -10,8 +10,6 @@ const NavItem = ({
   isMobile?: boolean;
 }) => {
   const pathname = usePathname();
-  const [anchorElNav, setAnchorElNav] = useState(null);
-  const handleCloseNavMenu = () => setAnchorElNav(null);
   const { handleNavigation } = useNavigation();
 
   const getMenuItemStyles = (path: string) => ({
@@ -28,7 +26,7 @@ const NavItem = ({
     <Link
       href={page.path}
       style={{ textDecoration: "none" }}
-      onClick={(e) => handleNavigation(e, page.path, handleCloseNavMenu)}
+      onClick={(e) => handleNavigation(e, page.path)}
     >
       <MenuItem sx={!isMobile ? getMenuItemStyles(page.path) : {}}>
         {page.label}
