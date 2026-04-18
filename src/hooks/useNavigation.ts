@@ -1,28 +1,25 @@
-import { usePathname } from "next/navigation";
+"use client";
+
+import { usePathname, useRouter } from "next/navigation";
 import { useLoading } from "@/context/LoadingContext";
 
 export const useNavigation = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const { startLoading } = useLoading();
 
-  const handleNavigation = (
-  e: React.MouseEvent,
-  path: string,
-  closeMenu?: () => void
-) => {
-  if (pathname === path) {
-    e.preventDefault();
+  const navigate = (path: string, closeMenu?: () => void) => {
+    if (pathname === path) {
+      closeMenu?.();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
 
-    if (closeMenu) closeMenu();
+    startLoading(path);
+    closeMenu?.();
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    return;
-  }
+    router.push(path);
+  };
 
-  startLoading(path);
-
-  if (closeMenu) closeMenu();
-};
-
-  return { handleNavigation };
+  return { navigate };
 };

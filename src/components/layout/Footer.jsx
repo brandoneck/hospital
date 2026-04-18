@@ -10,7 +10,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 
 export default function Footer() {
-  const { handleNavigation } = useNavigation();
+  const { navigate } = useNavigation();
   const year = new Date().getFullYear();
 
   return (
@@ -75,7 +75,7 @@ export default function Footer() {
                 <Link
                   key={page.path}
                   href={page.path}
-                  onClick={(e) => handleNavigation(e, page.path)}
+                  onClick={() => navigate(page.path)}
                 >
                   {page.label}
                 </Link>

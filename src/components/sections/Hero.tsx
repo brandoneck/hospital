@@ -7,7 +7,7 @@ import { hospitalInfo } from "@/data/hospitalData";
 import { useNavigation } from "@/hooks/useNavigation";
 
 export default function Hero() {
-  const { handleNavigation } = useNavigation();
+  const { navigate } = useNavigation();
   return (
     <>
       <Box
@@ -63,7 +63,7 @@ export default function Hero() {
             variant="contained"
             color="primary"
             size="large"
-            onClick={(e) => handleNavigation(e, ROUTES.CONTACTO)}
+            onClick={()=>navigate(ROUTES.CONTACTO)}
           >
             {hospitalInfo.hero.actionLabel}
           </Button>

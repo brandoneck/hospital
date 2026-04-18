@@ -4,10 +4,14 @@ import { ROUTES } from "@/constants/routes";
 import { useInView } from "@/hooks/useInView";
 import { useNavigation } from "@/hooks/useNavigation";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function SpecialtiesNames() {
-  const { handleNavigation } = useNavigation();
+  const { navigate } = useNavigation();
+  const router = useRouter();
+
   const [ref, isVisible] = useInView();
+
 
   return (
     <Box
@@ -86,8 +90,8 @@ export default function SpecialtiesNames() {
               backgroundColor: "#f5f5f5",
             },
           }}
-          onClick={(e) => {
-            handleNavigation(e, ROUTES.ESPECIALIDADES);
+          onClick={() => {
+            navigate(ROUTES.ESPECIALIDADES);
           }}
         >
           View All Specialties

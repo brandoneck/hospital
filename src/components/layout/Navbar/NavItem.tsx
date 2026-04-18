@@ -10,7 +10,7 @@ const NavItem = ({
   isMobile?: boolean;
 }) => {
   const pathname = usePathname();
-  const { handleNavigation } = useNavigation();
+  const { navigate } = useNavigation();
 
   const getMenuItemStyles = (path: string) => ({
     my: 2,
@@ -26,7 +26,7 @@ const NavItem = ({
     <Link
       href={page.path}
       style={{ textDecoration: "none" }}
-      onClick={(e) => handleNavigation(e, page.path)}
+      onClick={() => navigate(page.path)}
     >
       <MenuItem sx={!isMobile ? getMenuItemStyles(page.path) : {}}>
         {page.label}

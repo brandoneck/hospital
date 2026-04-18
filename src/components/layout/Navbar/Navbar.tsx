@@ -16,7 +16,7 @@ import { LOCAL_URLS } from "@/constants/urls";
 import { ROUTES_MENU, ROUTES } from "@/constants/routes";
 
 export default function Navbar() {
-  const { handleNavigation } = useNavigation();
+  const { navigate } = useNavigation();
   const [anchorElNav, setAnchorElNav] = useState<HTMLElement | null>(null);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -52,12 +52,7 @@ export default function Navbar() {
           </Box>
 
           {/* Logo */}
-          <Link
-            href={ROUTES.INICIO}
-            onClick={(e) =>
-              handleNavigation(e, ROUTES.INICIO, handleCloseNavMenu)
-            }
-          >
+          <Link href={ROUTES.INICIO} onClick={() => navigate(ROUTES.INICIO)}>
             <Box
               component="img"
               src={LOCAL_URLS.LOGO_GENERIC}
