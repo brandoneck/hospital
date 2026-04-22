@@ -1,4 +1,3 @@
-"use client";
 import { Card, Typography, Box, CardContent } from "@mui/material";
 import { specialtiesData } from "@/data/specialtiesData";
 import { Specialty } from "@/app/types/Speciality";
@@ -20,7 +19,6 @@ export default function Specialities() {
           sx={{
             padding: 2,
             textAlign: "center",
-            // width: 250,
             width: "calc(33.333% - 16px)",
             backgroundColor: "#fff",
             border: "1px solid #000",

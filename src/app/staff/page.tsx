@@ -1,5 +1,3 @@
-"use client";
-import { useEffect, useState } from "react";
 import { getDoctores } from "@/lib/doctores";
 
 type Doctor = {
@@ -8,20 +6,8 @@ type Doctor = {
   especialidad: string;
 };
 
-export default function StaffPage() {
-  const [data, setData] = useState<Doctor[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    getDoctores()
-      .then(setData)
-      .catch(() => setError("Error al cargar doctores"))
-      .finally(() => setLoading(false));
-  }, []);
-
-  if (loading) return <p>Cargando...</p>;
-  if (error) return <p>{error}</p>;
+export default async function StaffPage() {
+  const data: Doctor[] = await getDoctores();
 
   return (
     <div className="p-6">
