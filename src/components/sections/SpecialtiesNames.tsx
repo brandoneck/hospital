@@ -11,8 +11,7 @@ export default function SpecialtiesNames() {
   const router = useRouter();
 
   const [ref, isVisible] = useInView();
-
-
+  
   return (
     <Box
       ref={ref}
