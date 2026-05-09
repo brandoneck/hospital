@@ -1,6 +1,7 @@
 import { Link, MenuItem } from "@mui/material";
 import { usePathname } from "next/navigation";
 import { useNavigation } from "@/hooks/useNavigation";
+import { BorderTop } from "@mui/icons-material";
 
 const NavItem = ({
   page,
@@ -19,7 +20,14 @@ const NavItem = ({
     borderBottom: pathname === path ? "2px solid" : "2px solid transparent",
     borderColor: pathname === path ? "primary.main" : "transparent",
     borderRadius: 0,
-    transition: "border-color 0.3s ease, color 0.3s ease",
+    transition: "border-color 0.2s ease, color 0.2s ease, transform 0.2s ease",
+
+    "&:hover": {
+      color: "primary.main",
+      borderColor: "primary.main",
+      transform: "translateY(-2px)",
+      backgroundColor: "transparent",
+    },
   });
 
   return (
