@@ -11,7 +11,7 @@ export default function SpecialtiesNames() {
   const router = useRouter();
 
   const [ref, isVisible] = useInView();
-  
+
   return (
     <Box
       ref={ref}
@@ -27,7 +27,16 @@ export default function SpecialtiesNames() {
       }}
     >
       <Box sx={{ textAlign: "center" }}>
-        <Typography variant="h4">Nuestras Especialidades</Typography>
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: 700,
+            color: "primary.main",
+            lineHeight: 1.1,
+          }}
+        >
+          Nuestras Especialidades
+        </Typography>
       </Box>
       <Box
         sx={{
@@ -44,12 +53,15 @@ export default function SpecialtiesNames() {
             sx={{
               width: "calc(33.333% - 16px)",
               backgroundColor: "#fff",
-              border: "1px solid #000",
+              border: "1px solid",
+              borderColor: "divider",
               borderRadius: 2,
               boxShadow: "none",
               transition: "all 0.2s ease",
               "&:hover": {
                 transform: "translateY(-4px)",
+                borderColor: "primary.main",
+                boxShadow: 2,
               },
             }}
           >

@@ -1,4 +1,5 @@
 import { getDoctores } from "@/lib/doctores";
+import { Container } from "@mui/material";
 
 type Doctor = {
   id: number;
@@ -10,7 +11,7 @@ export default async function StaffPage() {
   const data: Doctor[] = await getDoctores();
 
   return (
-    <div className="p-6">
+    <Container maxWidth="lg">
       <h1 className="text-2xl font-bold mb-4">Nuestros Doctores</h1>
       <ul className="space-y-2">
         {data.map((doc) => (
@@ -19,6 +20,6 @@ export default async function StaffPage() {
           </li>
         ))}
       </ul>
-    </div>
+    </Container>
   );
 }

@@ -10,45 +10,64 @@ export default function Hero() {
   return (
     <Box
       sx={{
+        position: "relative",
+        minHeight: "85vh",
         display: "flex",
-        flexDirection: "column",
         alignItems: "center",
-        justifyContent: "space-between",
-        backgroundColor: "#f2f2f2",
-        borderRadius: 2,
-        p: 4,
+        justifyContent: "center",
         overflow: "hidden",
-        mb: 8,
+        top: -10,
       }}
     >
+      <Image
+        src={LOCAL_URLS.HOSPITAL_IMAGE}
+        alt="Banner"
+        fill
+        style={{
+          objectFit: "cover",
+        }}
+      />
+
       <Box
         sx={{
-          width: "100%",
-          height: 400,
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3))",
+        }}
+      />
+      <Box
+        sx={{
           position: "relative",
-          borderRadius: 2,
-          overflow: "hidden",
+          zIndex: 1,
+          textAlign: "center",
+          color: "white",
+          px: 4,
+          maxWidth: 900,
         }}
       >
-        <Image
-          src={LOCAL_URLS.HOSPITAL_IMAGE}
-          alt="Banner"
-          fill
-          style={{ objectFit: "cover" }}
-        />
-      </Box>
-
-      <Box sx={{ flex: 1, mt: 4, textAlign: "center" }}>
-        <Typography variant="h3" sx={{ fontWeight: "bold" }}>
+        <Typography
+          variant="h2"
+          sx={{
+            fontWeight: 700,
+            mb: 2,
+          }}
+        >
           {hospitalInfo.hero.title}
         </Typography>
 
-        <Typography variant="body1" sx={{ mb: 3 }}>
+        <Typography
+          variant="h6"
+          sx={{
+            mb: 4,
+            opacity: 0.9,
+          }}
+        >
           {hospitalInfo.hero.text}
         </Typography>
 
         <Link href={ROUTES.CONTACTO}>
-          <Button variant="contained" color="primary" size="large">
+          <Button variant="contained" size="large">
             {hospitalInfo.hero.actionLabel}
           </Button>
         </Link>

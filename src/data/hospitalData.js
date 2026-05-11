@@ -1,18 +1,18 @@
 export const hospitalInfo = {
   general: {
-    name: "Medical Center Branding Page (Demo)"
+    name: "Medical Center Branding Page (Demo)",
   },
 
   contact: {
     email: "contacto@hospital...",
     phone: "+52 449 123 4567",
-    address: "Av. Principal 123, Aguascalientes, México"
+    address: "Av. Principal 123, Aguascalientes, México",
   },
 
   social: {
     facebook: "https://facebook.com/",
     twitter: "https://twitter.com/",
-    instagram: "https://instagram.com/"
+    instagram: "https://instagram.com/",
   },
 
   hero: {
@@ -20,29 +20,45 @@ export const hospitalInfo = {
     text: "Atención médica de calidad con tecnología de punta. Reserva tu cita ahora.",
     actionLabel: "Agendar cita",
     stats: [
-      { value: "⭐ 20+ años" },
-      { value: "👨‍⚕️ 20 especialistas" },
-      { value: "🏥 +10,000 pacientes" },
-      { value: "🕐 24/7" }
-    ]
+      {
+        icon: "⭐",
+        value: "20+",
+        label: "Años de experiencia",
+      },
+      {
+        icon: "👨‍⚕️",
+        value: "20",
+        label: "Especialistas",
+      },
+      {
+        icon: "🏥",
+        value: "+10,000",
+        label: "Pacientes atendidos",
+      },
+      {
+        icon: "🕐",
+        value: "24/7",
+        label: "Atención",
+      },
+    ],
   },
 
   services: [
     {
-      title: "Emergencias 24h"
+      title: "Emergencias 24h",
     },
     {
-      title: "Consultas generales"
+      title: "Consultas generales",
     },
     {
-      title: "Cirugía"
+      title: "Cirugía",
     },
     {
-      title: "Laboratorio"
-    }
+      title: "Laboratorio",
+    },
   ],
 
   footer: {
-    text: "Especialistas de la salud"
-  }
+    text: "Especialistas de la salud",
+  },
 };

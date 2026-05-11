@@ -30,7 +30,7 @@ export default function Providers({ children }: Props) {
           <Navbar />
 
           <Box sx={{ flex: 1, pt: 10 }}>
-            <Container maxWidth="lg">{children}</Container>
+            {children}
           </Box>
 
           <Footer />

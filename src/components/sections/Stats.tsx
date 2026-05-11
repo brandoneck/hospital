@@ -27,15 +27,59 @@ export default function Stats() {
         <Box
           key={index}
           sx={{
-            flex: "1 1 200px",
+            flex: "1 1 220px",
+            minHeight: 180,
+
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+
             textAlign: "center",
+
+            borderRadius: 4,
+            backgroundColor: "background.paper",
+
+            border: "1px solid",
+            borderColor: "divider",
+
+            transition: "all 0.25s ease",
+
+            "&:hover": {
+              transform: "translateY(-4px)",
+              borderColor: "primary.main",
+              boxShadow: 2,
+            },
           }}
         >
           <Typography
-            variant="subtitle1"
-            sx={{ color: "primary.main", fontWeight: "bold" }}
+            sx={{
+              fontSize: 42,
+              mb: 1,
+            }}
+          >
+            {stat.icon}
+          </Typography>
+
+          <Typography
+            variant="h4"
+            sx={{
+              fontWeight: 700,
+              color: "primary.main",
+              lineHeight: 1.1,
+            }}
           >
             {stat.value}
+          </Typography>
+
+          <Typography
+            variant="body2"
+            sx={{
+              mt: 1,
+              color: "text.secondary",
+            }}
+          >
+            {stat.label}
           </Typography>
         </Box>
       ))}
