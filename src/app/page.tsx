@@ -9,13 +9,13 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <Box sx={{ py: 10 }}>
+      <Box sx={{ py: 12 }}>
         <Container maxWidth="lg">
           <Stats />
         </Container>
       </Box>
 
-      <Box sx={{ py: 10, backgroundColor: "custom.gray3" }}>
+      <Box sx={{ py: 12, backgroundColor: "custom.gray3" }}>
         <Container maxWidth="lg">
           <SpecialtiesNames />
         </Container>

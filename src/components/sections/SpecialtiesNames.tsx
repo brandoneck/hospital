@@ -21,7 +21,6 @@ export default function SpecialtiesNames() {
         flexWrap: "wrap",
         justifyContent: "center",
         gap: 6,
-        py: 12,
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "translateY(0)" : "translateY(40px)",
         transition: "all 0.8s ease-out",

@@ -14,10 +14,10 @@ export default function Stats() {
         flexWrap: "wrap",
         gap: 4,
         width: "100%",
-        // padding: "32px",
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "translateY(0)" : "translateY(40px)",
         transition: "all 0.8s ease-out",
+        
       }}
     >
       {hospitalInfo.hero.stats.map((stat, index) => (
@@ -25,7 +25,8 @@ export default function Stats() {
           key={index}
           sx={{
             flex: "1 1 220px",
-            minHeight: 180,
+            // TODO: Look if the next section needs the following line
+            // minHeight: 180,
 
             display: "flex",
             flexDirection: "column",
