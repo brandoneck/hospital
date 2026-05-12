@@ -32,25 +32,14 @@ export default function Navbar() {
       }}
     >
       <ContainerMui maxWidth="xl">
-        <Toolbar disableGutters>
-          {/* Mobile */}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton onClick={handleOpenNavMenu} color="secondary">
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              anchorEl={anchorElNav}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-              transformOrigin={{ vertical: "top", horizontal: "left" }}
-            >
-              {ROUTES_MENU.map((page) => (
-                <NavItem key={page.path} page={page} isMobile />
-              ))}
-            </Menu>
-          </Box>
-
+        <Toolbar
+          disableGutters
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
           {/* Logo */}
           <Link href={ROUTES.INICIO} onClick={() => navigate(ROUTES.INICIO)}>
             <Box
@@ -61,6 +50,24 @@ export default function Navbar() {
               sx={{ cursor: "pointer" }}
             />
           </Link>
+
+          {/* Mobile */}
+          <Box sx={{ marginLeft: "auto", display: { xs: "flex", md: "none" } }}>
+            <IconButton onClick={handleOpenNavMenu} color="secondary">
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              anchorEl={anchorElNav}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              transformOrigin={{ vertical: "top", horizontal: "right" }}
+            >
+              {ROUTES_MENU.map((page) => (
+                <NavItem key={page.path} page={page} isMobile />
+              ))}
+            </Menu>
+          </Box>
 
           {/* Desktop */}
           <Box

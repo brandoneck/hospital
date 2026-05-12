@@ -5,6 +5,7 @@ import { useInView } from "@/hooks/useInView";
 import { useNavigation } from "@/hooks/useNavigation";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import SectionTitle from "../ui/SectionTitle";
 
 export default function SpecialtiesNames() {
   const { navigate } = useNavigation();
@@ -26,18 +27,7 @@ export default function SpecialtiesNames() {
         transition: "all 0.8s ease-out",
       }}
     >
-      <Box sx={{ textAlign: "center" }}>
-        <Typography
-          variant="h4"
-          sx={{
-            fontWeight: 700,
-            color: "primary.main",
-            lineHeight: 1.1,
-          }}
-        >
-          Nuestras Especialidades
-        </Typography>
-      </Box>
+      <SectionTitle title={"Nuestras Especialidades"} />
       <Box
         sx={{
           display: "flex",
@@ -93,12 +83,13 @@ export default function SpecialtiesNames() {
           sx={{
             borderColor: "#000",
             color: "#000",
+            backgroundColor: "common.white",
             px: 4,
             py: 1.5,
             textTransform: "none",
             "&:hover": {
               borderColor: "#000",
-              backgroundColor: "#f5f5f5",
+              backgroundColor: "common.gray2",
             },
           }}
           onClick={() => {

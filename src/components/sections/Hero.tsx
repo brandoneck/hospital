@@ -10,13 +10,12 @@ export default function Hero() {
   return (
     <Box
       sx={{
-        position: "relative",
-        minHeight: "85vh",
+        position: "static",
+        minHeight: "95vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
-        top: -10,
       }}
     >
       <Image
